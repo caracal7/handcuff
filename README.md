@@ -1,5 +1,5 @@
 # Handcuff
-Since Javascript does not provide encapsulation this library allows the developer to keep attributes and functions private. Works when following the convention of prefixing the attribute names with an `_` or a pre-defined and valid character. 
+Since Javascript does not provide encapsulation, this library allows the developer to keep attributes and functions private. Works when following the convention of prefixing the attribute/function names with an `_` or a pre-defined and valid character. 
 
 This functionality is implemented using ES6 proxies.
 
