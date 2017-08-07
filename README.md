@@ -36,3 +36,6 @@ console.log(user._name); // Error: Unable to access private string `_name`
 user._name = 'Fred'; // Error: Unable to access private string `_name`
 user._link(); // Error: Unable to access private function `_link`
 ```
+
+### Issues
+This is a work in progress and have not been extensively tested. Please report any issues you may find.
