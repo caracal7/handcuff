@@ -1,0 +1,24 @@
+{
+  "name": "handcuff",
+  "version": "1.0.0",
+  "description": "Prevents direct access to private attributes and functions outside the class implementation.",
+  "main": "handcuff.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisaguiar/handcuff.git"
+  },
+  "keywords": [
+    "proxy",
+    "encapsulation",
+    "private"
+  ],
+  "author": "Luis Aguiar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luisaguiar/handcuff/issues"
+  },
+  "homepage": "https://github.com/luisaguiar/handcuff#readme"
+}
