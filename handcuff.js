@@ -1,6 +1,6 @@
 /**
- * Prevents direct access to private attributes and functions
- * outside the class implementation. Attributes must then be
+ * Prevents direct access to private propertys and functions
+ * outside the class implementation. propertys must then be
  * accessed using getters and setters.
  */
 class Handcuff {
@@ -15,14 +15,14 @@ class Handcuff {
     this._proxy = new Proxy(obj, this._handler());
     
     /*
-     * Character used to identify private attributes.
+     * Character used to identify private propertys.
      */
     this._identifier = identifier;
 
     /*
-     * Holds the attribute data type.
+     * Holds the property data type.
      */
-    this._attributeType = undefined;
+    this._propertyType = undefined;
   }
   
   /**
@@ -31,18 +31,18 @@ class Handcuff {
    */
   _handler() {
     return {
-      get: (target, attribute) => {
-        this._type(target[attribute]);
+      get: (target, property) => {
+        this._type(target[property]);
         
-        if (this._accessible(attribute) && (attribute in target)) {
-          return target[attribute];
+        if (this._accessible(property) && (property in target)) {
+          return target[property];
         }
       },
-      set: (target, attribute, value) => {
-        this._type(target[attribute]);
+      set: (target, property, value) => {
+        this._type(target[property]);
         
-        if (this._accessible(attribute) && (attribute in target)) {
-          target[attribute] = value;
+        if (this._accessible(property) && (property in target)) {
+          target[property] = value;
           
           return true;
         }
@@ -51,32 +51,32 @@ class Handcuff {
   }
   
   /**
-   * Verify if the current attribute is defined as 
+   * Verify if the current property is defined as 
    * private.
    *
    * @throws error when trying to access private fields
    */
-  _accessible(attribute) {
-    if (attribute[0] !== this._identifier) {
+  _accessible(property) {
+    if (property[0] !== this._identifier) {
       return true;
     }
     
-    throw new Error(`Unable to access private ${this._attributeType} \`${attribute}\``);
+    throw new Error(`Unable to access private ${this._propertyType} \`${property}\``);
   }
   
   /**
-   * Sets the attribute type used to didplay errors when
-   * accessing private attributes.
+   * Sets the property type used to didplay errors when
+   * accessing private properties.
    */
-  _type(attribute) {
-    this._attributeType = typeof attribute;
+  _type(property) {
+    this._propertyType = typeof property;
   }
   
   /**
    * Return the `proxy` object that contains the given 
    * object.
    */
-  get proxy() {
+  get lock() {
     return this._proxy;
   }
 }
